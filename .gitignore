@@ -3,3 +3,6 @@
 ################################################################################
 
 /.vs
+/mailDomainLookup/c#/bin
+/mailDomainLookup/c#/obj
+/mailDomainLookup/c#/.vs
