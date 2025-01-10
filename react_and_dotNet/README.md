@@ -37,6 +37,7 @@ These allow the react app to be included in Visual Studio 2022, and maybe opened
 --------------------------------------
 
 -- Install the @auth0 package
+
 	npm install @auth0/auth0-react
 
 
