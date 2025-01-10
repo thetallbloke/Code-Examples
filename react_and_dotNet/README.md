@@ -6,16 +6,16 @@ This is a simple example of how to combine a React project with a .NET Core proj
 
 npm create vite@latest
 
-	* Select a framework: » React
-	* Select a variant: » TypeScript + SWC
+	Select a framework: » React
+	Select a variant: » TypeScript + SWC
 
 --------------------------------------
 
 ## How to run
 
-+ cd <project-root>
-+ npm i			(or npm install)
-+ npm run dev
+	cd <project-root>
+	npm i			(or npm install)
+	npm run dev
 
 --------------------------------------
 
