@@ -66,3 +66,40 @@ This works perfectly fine, but it's a manual process. Here's how you can do it:
 	EndGlobalSection
 
 3. Save the solution.  If prompted by Visual Studio, reload the solution.
+
+## .NET Core API and React App
+
+There are a few gotchas when combining a .NET Core API and a React app.  I have been able to secure the API using Auth0, and have the React app call the API using the access token.
+
+### Part 1 - .NET Core API
+
+### Part 2 - React App
+
+You can either specify the audience in the Auth0Provider component, or you can specify it in the useAuth0 hook.
+
+** Auth0Provier **
+
+	<Auth0Provider
+        domain={import.meta.env.VITE_AUTH0_DOMAIN}
+        clientId={import.meta.env.VITE_AUTH0_CLIENT_ID}
+        authorizationParams={{
+            scope:'openid profile email',
+            audience: import.meta.env.VITE_AUTH0_API_AUDIENCE,
+            redirect_uri: window.location.origin,
+        }}
+    >
+        <BrowserRouter>
+            <App />
+        </BrowserRouter>
+    </Auth0Provider>
+
+** useAuth0 **
+
+	const token = await getAccessTokenSilently({
+		authorizationParams: {
+			scope: 'openid profile email',
+			audience: `${import.meta.env.VITE_AUTH0_API_AUDIENCE}`
+		}
+	});
+
+I now specify the audience in the Auth0Provider component for simplicity.  Set it once for the whole app and not have to worry about it for each call to the API.
